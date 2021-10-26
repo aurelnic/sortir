@@ -1,0 +1,11 @@
+{% block title %}
+    Créer une sortie
+{% endblock %}
+
+{% block body %}
+<h2> Créer une sortie</h2>
+    {{ form_start(sortieForm) }}
+    {{ form_widget(sortieForm) }}
+    <button>Publier la sortie</button>
+    {{ form_end(sortieForm) }}
+{% endblock %}
