@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{  parent() }} | Detail
+{% endblock %}
+
+{% block body %}
+    <h2>{{ participant.pseudo }} </h2>
+    <h3>Prénom : </h3>
+    <h3>Nom : </h3>
+    <h3>Téléphone : </h3>
+    <h3>Email : </h3>
+    <h3>Ville de rattachement : </h3>
+    <button>annuler</button>
+{% endblock %}
