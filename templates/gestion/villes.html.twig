@@ -1,0 +1,21 @@
+<h2>Gérer les villes</h2>
+
+<div id="filtrage">
+    <h3>Filtrer les villes</h3>
+
+    {{ form(villeform) }}
+</div>
+
+<div>
+    {% for ville in villes %}
+        <div>{{ ville.id}} {{ ville.nomVille }}  (cp : {{ ville.codePostal }}) <a href="{{ path('gestion_villes_edit', {'id': ville.id}) }}">Modifier</a>   <a href="{{ path('gestion_villes_delete', {'id': ville.id}) }}">Supprimer</a></div>
+    {% endfor %}
+
+    {{ form_start(villeajoutform) }}
+    {{ form_widget(villeajoutform.nomVille) }}
+    {{ form_widget(villeajoutform.codePostal) }}
+    <button id="rajout">Ajouter</button>
+
+    {{ form_end(villeajoutform)}}
+
+</div>

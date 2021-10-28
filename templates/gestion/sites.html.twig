@@ -1,0 +1,20 @@
+<h2>Gérer les sites</h2>
+
+<div id="filtrage">
+    <h3>Filtrer les sites</h3>
+
+    {{ form(filtreForm) }}
+</div>
+
+<div>
+    {% for site in sites %}
+        <div>{{ site.id}} {{ site.nomSite}}  <a href="{{ path('gestion_sites_edit', {'id': site.id}) }}">Modifier</a>   <a href="{{ path('gestion_sites_delete', {'id': site.id}) }}">Supprimer</a></div>
+    {% endfor %}
+
+    {{ form_start(ajoutForm) }}
+    {{ form_widget(ajoutForm.nomSite) }}
+    <button id="rajout">Ajouter</button>
+
+    {{ form_end(ajoutForm)}}
+
+</div>
