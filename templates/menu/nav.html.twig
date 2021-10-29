@@ -1,0 +1,35 @@
+<nav>
+    <ul>
+        <li><a href="{{ path('admin_dashboard') }}" title="Villes">Villes</a></li>
+        <li><a href="{{ path('admin_dashboard') }}" title="Sites">Sites</a></li>
+
+        <li><a href="{{ path('main_index', {'_locale': 'fr'}) }}" title="Index">Accueil</a></li>
+        {# {% if app.user %} #}
+            <li><a href="" title="Profil">Mon profil</a></li>
+            <li><a href="" title="Logout">Se déconnecter</a></li>
+        {# {% if is_granted('ROLE_ADMIN') %} #}
+
+        {# {% endif %} #}
+        {#{% else %}  #}
+            <li><a href="" title="Register">S'inscrire</a></li>
+            <li><a href="" title="Login">Se connecter</a></li>
+        {# {% endif %} #}
+    </ul>
+</nav>
+
+{# <nav>
+    <ul>
+        <li><a href="{{ path('main_index', {'_locale': 'fr'}) }}" title="Index">Accueil</a></li>
+
+        {% if app.user %}
+            <li><a href="{{ path('app_logout') }}" title="Logout">Se déconnecter ({{ app.user.firstname }})</a></li>
+            {% if is_granted('ROLE_ADMIN') %}
+                <li><a href="{{ path('admin_dashboard') }}" title="Villes">Villes</a></li>
+                <li><a href="{{ path('admin_dashboard') }}" title="Sites">Sites</a></li>
+            {% endif %}
+        {% else %}
+            <li><a href="{{ path('app_register') }}" title="Register">S'inscrire</a></li>
+            <li><a href="{{ path('app_login') }}" title="Login">Se connecter</a></li>
+        {% endif %}
+    </ul>
+</nav> #}

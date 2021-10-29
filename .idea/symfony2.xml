@@ -11,5 +11,6 @@
     <option name="codeFoldingTwigTemplate" value="false" />
     <option name="codeFoldingTwigConstant" value="false" />
     <option name="featureTwigIcon" value="false" />
+    <option name="lastServiceGeneratorLanguage" value="yaml" />
   </component>
 </project>
