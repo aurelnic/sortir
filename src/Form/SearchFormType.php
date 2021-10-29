@@ -18,18 +18,11 @@ class SearchFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('site', ChoiceType::class, [
-                'label' => "Site:",
-                'choices' => [
-                    'A RESOUDRE' => 'A RESOUDRE'
-                ]
+            ->add('site', EntityType::class, [ 'class'=>Site::class,
+                'choice_label'=>function($site){
+                    return $site->getNomSite();
+                }
             ])
-
-//            ->add('site', EntityType::class, [ 'class'=>Site::class,
-//                'choice_label'=>function($site){
-//                    return $site->getSite();
-//                }
-//            ])
 
             ->add('recherche', SearchType::class, [
                 'label' => "Le nom de la sortie contient:",
