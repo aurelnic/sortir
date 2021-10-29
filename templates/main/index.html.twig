@@ -7,10 +7,10 @@
 {% block body %}
     <h2>Filtrer les sorties</h2>
 
-    <div id="container_principal" style="width: 1000px;height:800px; display: flex; flex-direction: column; background-color: #a38b8b; margin: 5px; padding: 5px; border: 2px; border-style: solid">
+    <div id="container_principal" style="width: 1200px;height:800px; display: flex; flex-direction: column; background-color: #a38b8b; margin: 5px; padding: 5px; border: 2px; border-style: solid">
 
         <div id="formulaire" style="background-color: #7635a3; display: flex; flex-direction: row; margin: 5px; padding: 5px; border: 2px;">
-            <div id="formulaire_gauche" style="width: 400px; background-color: #2fa350; margin: 5px; padding: 5px; border: 2px">
+            <div id="formulaire_gauche" style="width: 500px; background-color: #2fa350; margin: 5px; padding: 5px; border: 2px">
                 {{ form_start(form) }}
                 {{ form_row(form.site) }}
                 {{ form_row(form.recherche) }}
@@ -22,7 +22,7 @@
                 </div>
             </div>
 
-            <div id="formulaire_droite" style="width:400px; background-color: #a35d78; margin: 5px; padding: 5px; border: 2px">
+            <div id="formulaire_droite" style="width:500px; background-color: #a35d78; margin: 5px; padding: 5px; border: 2px">
                 {{ form_row(form.organisateur) }}
                 {{ form_row(form.inscrit) }}
                 {{ form_row(form.pasInscrit) }}
@@ -33,7 +33,7 @@
             </div>
         </div>
 
-        <div id="liste_sorties" style="width: 1000px;height:500px;background-color:#5f74a3; border: 2px">
+        <div id="liste_sorties" style="width: 1200px;height:500px;background-color:#5f74a3; border: 2px">
             <table style="width: 100%; display:block;">
                 <thead style="display: inline-block; width: 100%; height: 20px;">
                 <tr>
