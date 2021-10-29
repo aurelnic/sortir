@@ -19,6 +19,19 @@ class SiteRepository extends ServiceEntityRepository
         parent::__construct($registry, Site::class);
     }
 
+    public function findSiteLike($filtre){
+        $queryBuilder = $this->createQueryBuilder('s');
+
+        if($filtre != "")
+        {
+            $queryBuilder->andWhere('s.nomSite LIKE :nomrecherche');
+            $queryBuilder->setParameter('nomrecherche','%'.$filtre.'%');
+        }
+
+        $query = $queryBuilder->getQuery();
+        return $query->getResult();
+    }
+
     // /**
     //  * @return Site[] Returns an array of Site objects
     //  */
