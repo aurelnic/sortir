@@ -1,0 +1,42 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    text-align: center;
+}
+
+.sortie-detail {
+    width: 100%;
+}
+
+.sortie-detail-sortie {
+    width: 50%;
+    height: 100%;
+    float: left;
+}
+
+.sortie-detail-ville {
+    height: 100%;
+}
+
+.sortie-create {
+    width: 100%;
+}
+
+.sortie-create-sortie {
+    padding-left: 2%;
+    padding-right: 2%;
+    width: 50%;
+    height: 100%;
+    float: left;
+}
+
+.sortie-create-ville {
+    padding-left: 2%;
+    padding-right: 2%;
+    width: 50%;
+    height: 100%;
+    float: right;
+}

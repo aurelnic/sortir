@@ -6,33 +6,35 @@
 
 {% block body %}
 <h2> Créer une sortie</h2>
-    <div class="sortie">
-        {{ form_start(sortieForm) }}
-            {{ form_row(sortieForm.libelle) }}
-            {{ form_row(sortieForm.dateSortie) }}
-            {{ form_row(sortieForm.dateCloture) }}
-            {{ form_row(sortieForm.nbreParticipants) }}
-            {{ form_row(sortieForm.duree) }}
-            {{ form_row(sortieForm.description) }}
-            {{ form_row(sortieForm.site) }}
-    </div>
-    <div class="lieu">
-        <label for='villes'>Villes</label>
-        <select id="villes" required>
-            <option value="">Choisissez une ville :</option>
-            {% for ville in villes %}
-                <option value='{{ ville.id }}'>{{ ville.nomVille }}</option>
-            {% endfor %}
-        </select>
-    </div>
-    <div id="lieu">
-        {{ form_row(sortieForm.lieu) }}
-        <label for="adresse">Adresse</label>
-        <input type="text" id="adresse" disabled/>
-        <label for="latitude">Latitude</label>
-        <input type="text" id="latitude" disabled/>
-        <label for="longitude">Longitude</label>
-        <input type="text" id="longitude" disabled/>
+    <div class="sortie-create">
+        <div class="sortie-create-sortie">
+            {{ form_start(sortieForm) }}
+                {{ form_row(sortieForm.libelle) }}
+                {{ form_row(sortieForm.dateSortie) }}
+                {{ form_row(sortieForm.dateCloture) }}
+                {{ form_row(sortieForm.nbreParticipants) }}
+                {{ form_row(sortieForm.duree) }}
+                {{ form_row(sortieForm.description) }}
+                <p>Ville organisatrice : {{ site.nomSite }}</p>
+        </div>
+        <div class="sortie-create-ville">
+            <label for='villes'>Villes</label>
+            <select id="villes" required>
+                <option value="">Choisissez une ville :</option>
+                {% for ville in villes %}
+                    <option value='{{ ville.id }}'>{{ ville.nomVille }}</option>
+                {% endfor %}
+            </select>
+            <div id="lieu">
+                {{ form_row(sortieForm.lieu) }}
+                <label for="adresse">Adresse</label>
+                <input type="text" id="adresse" disabled/>
+                <label for="latitude">Latitude</label>
+                <input type="text" id="latitude" disabled/>
+                <label for="longitude">Longitude</label>
+                <input type="text" id="longitude" disabled/>
+            </div>
+        </div>
     </div>
     <button>Enregistrer la sortie</button>
     {{ form_end(sortieForm) }}
