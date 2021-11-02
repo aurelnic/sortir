@@ -32,6 +32,10 @@ class VilleRepository extends ServiceEntityRepository
         return $query->getResult();
     }
 
+    public function getVilles() {
+
+    }
+
     // /**
     //  * @return Ville[] Returns an array of Ville objects
     //  */
