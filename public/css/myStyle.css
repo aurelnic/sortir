@@ -1,9 +1,9 @@
 body {
-    background: linear-gradient(#ffffff, #ffffff);
+    background: linear-gradient(#8e979b, #a28484);
     background-attachment: fixed;
     background-position: center center;
     background-size: cover;
-    color: #EEE;
+    color: #f3f5f6;
     font-family: 'Roboto', sans-serif;
 }
 

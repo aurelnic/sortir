@@ -64,14 +64,12 @@ class SortieRepository extends ServiceEntityRepository
         if($sortie->getInscrit()){
             $queryBuilder->andWhere('h.inscrit = :inscrit');
             $queryBuilder->setParameter('inscrit', $sortie->getInscrit());
-
         }
 
         //si pas inscrit
         if($sortie->getPasInscrit()){
             $queryBuilder->andWhere('h.pasInscrit = :pasInscrit');
             $queryBuilder->setParameter('pasInscrit', $sortie->getPasInscrit());
-
         }
 
         //si sorties passees
@@ -79,11 +77,6 @@ class SortieRepository extends ServiceEntityRepository
             $queryBuilder->andWhere('h.sortiesPassees = :sortiesPassees');
             $queryBuilder->setParameter('sortiesPassees', $sortie->getSortiesPassees());
         }
-
-        //permet de récupérer le nombre de résultat avec les critères de recherhce
-        $queryBuilder->select('COUNT(h)');
-        $countQuery = $queryBuilder->getQuery();
-        $maxHouses = $countQuery->getSingleScalarResult();
 
         //doit refaire le select pour bien récupérer les résultats
         $queryBuilder->select('h');
