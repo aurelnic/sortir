@@ -5,12 +5,12 @@
 {% endblock %}
 
 {% block body %}
-    <h2>Filtrer les sorties</h2>
+    <h3>Filtrer les sorties</h3>
 
     <div id="container_principal">
 
-        <div id="formulaire">
-            <div id="formulaire_gauche">
+        <div id="formulaire" style="display: flex; flex-direction: row;">
+            <div id="formulaire_gauche" style="width: 500px">
                 {{ form_start(form) }}
                 {{ form_row(form.site) }}
                 {{ form_row(form.recherche) }}
@@ -22,51 +22,52 @@
                 </div>
             </div>
 
-            <div id="formulaire_droite">
+            <div id="formulaire_droite" style="width: 500px">
                 {{ form_row(form.organisateur) }}
                 {{ form_row(form.inscrit) }}
                 {{ form_row(form.pasInscrit) }}
                 {{ form_row(form.sortiesPassees) }}
             </div>
-            <div id="formulaire_bouton">
+            <div id="formulaire_bouton" style="width: 200px">
                 <button id="searchButton" style="width: 200px; height:75px; background-color: #B0413E">Rechercher</button>
             </div>
         </div>
 
-        <div id="liste_sorties" style="width: 1400px;height:500px;background-color:#7b849a;">
+        <div id="liste_sorties" style="width: 1500px;height:500px;">
 
             {#<table border="2" style=" width: 100%;border: 2px; border-style: solid">#}
-            <table border="2">
-                <thead style="display:flex; width: 100%; height: 20px;">
-                <tr>
-                    <th colspan="2">Nom de la sortie</th>
-                    <th colspan="2">Date de la sortie</th>
-                    <th colspan="2">Clôture de la sortie</th>
-                    <th colspan="2">Inscrits/Places</th>
-                    <th colspan="2">Etat de la sortie</th>
-                    <th colspan="2">Inscrit à la sortie</th>
-                    <th colspan="2">Organisateur de la sortie</th>
-                    <th colspan="2">Actions</th>
-                </tr>
+            <table>
+                <thead>
+                    <tr >
+                        <th colspan="2">Nom de la sortie</th>
+                        <th colspan="2">Date de la sortie</th>
+                        <th colspan="2">Clôture de la sortie</th>
+                        <th colspan="2">Inscrits/Places</th>
+                        <th colspan="2">Etat de la sortie</th>
+                        <th colspan="2">Inscrit à la sortie</th>
+                        <th colspan="2">Organisateur de la sortie</th>
+                        <th colspan="2">Actions à réaliser</th>
+                    </tr>
                 </thead>
-                <tbody style="height: 400px; display: flex; width: 100%; text-decoration-color: fuchsia">
-                <tr>
-                    {% for sortie in sorties %}
-                        <td>{{ sortie.libelle }}</td>
-                        <td>{{ sortie.dateSortie|date('y-m-d') }}</td>
-                        <td>{{ sortie.dateCloture|date('y-m-d') }}</td>
-                        <td>{{ sortie.nbreParticipants }}</td>
-                        <td>{{ sortie.etat }}</td>
-                        <td>Inscrit A FAIRE </td>
-                        <td>A TRAITER</td>
-{#                        <td>{{ sortie.organisateur }}</td>#}
-                        <td>Actions A FAIRE</td>
-                    {% endfor %}
-                </tr>
+                <tbody>
+                    <tr>
+                        {% for sortie in sorties %}
+                            <td colspan="2">{{ sortie.libelle }}</td>
+                            <td colspan="2">{{ sortie.dateSortie|date('y-m-d') }}</td>
+                            <td colspan="2">{{ sortie.dateCloture|date('y-m-d') }}</td>
+                            <td colspan="2">{{ sortie.nbreParticipants }}</td>
+                            <td colspan="2">{{ sortie.etat }}</td>
+                            <td colspan="2">Inscrit A FAIRE </td>
+                            <td colspan="2">A TRAITER</td>
+    {#                        <td>{{ sortie.organisateur }}</td>#}
+                            <td colspan="2">Actions A FAIRE</td>
+                        {% endfor %}
+                    </tr>
                 </tbody>
             </table>
         </div>
-        <button id="creerSortie" href="{{ path('sortie_create', {'id': 1}) }}" style="background-color: #B0413E; width: 200px; height:75px;">Créer une sortie</button>
+
     </div>
     {{ form_end(form) }}
+    <button id="creerSortie" href="{{ path('sortie_create', {'id': 1}) }}" style="background-color: #B0413E; width: 200px; height:75px;">Créer une sortie</button>
 {% endblock %}

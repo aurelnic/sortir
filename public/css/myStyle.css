@@ -7,8 +7,6 @@ body {
     font-family: 'Roboto', sans-serif;
     margin: 5px;
     padding: 5px;
-    /*border: 2px;*/
-    /*border-style: solid;*/
 }
 
 .container_principal{
@@ -18,7 +16,7 @@ body {
     flex-direction: column;
 }
 
-.formulaire_principal{
+.formulaire{
     background-color: #8b8d91;
     display: flex;
     flex-direction: row;
@@ -79,11 +77,11 @@ h1, h2, h3, h4 {
     margin-top: 0;
 }
 
-body > .container {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
+/*body > .container {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    min-height: 100vh;*/
+/*}*/
 
 header img {
     height: 70px;
@@ -105,40 +103,40 @@ nav li {
 
 /********************** SORTIE  **************************/
 
-h2 {
-    text-align: center;
-}
+/*h2 {*/
+/*    text-align: center;*/
+/*}*/
 
-.sortie-detail {
-    width: 100%;
-}
+/*.sortie-detail {*/
+/*    width: 100%;*/
+/*}*/
 
-.sortie-detail-sortie {
-    width: 50%;
-    height: 100%;
-    float: left;
-}
+/*.sortie-detail-sortie {*/
+/*    width: 50%;*/
+/*    height: 100%;*/
+/*    float: left;*/
+/*}*/
 
-.sortie-detail-ville {
-    height: 100%;
-}
+/*.sortie-detail-ville {*/
+/*    height: 100%;*/
+/*}*/
 
-.sortie-create {
-    width: 100%;
-}
+/*.sortie-create {*/
+/*    width: 100%;*/
+/*}*/
 
-.sortie-create-sortie {
-    padding-left: 2%;
-    padding-right: 2%;
-    width: 50%;
-    height: 100%;
-    float: left;
-}
+/*.sortie-create-sortie {*/
+/*    padding-left: 2%;*/
+/*    padding-right: 2%;*/
+/*    width: 50%;*/
+/*    height: 100%;*/
+/*    float: left;*/
+/*}*/
 
-.sortie-create-ville {
-    padding-left: 2%;
-    padding-right: 2%;
-    width: 50%;
-    height: 100%;
-    float: right;
-}
+/*.sortie-create-ville {*/
+/*    padding-left: 2%;*/
+/*    padding-right: 2%;*/
+/*    width: 50%;*/
+/*    height: 100%;*/
+/*    float: right;*/
+/*}*/
