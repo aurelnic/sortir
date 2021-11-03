@@ -84,4 +84,21 @@ class SortieRepository extends ServiceEntityRepository
 
         return $query->getResult();
     }
+
+
+//    public function nbreInscritsSortie($sortie){
+//        //SELECT COUNT (participant_id) FROM sortie_participant WHERE $sortie_id = $sortie.id
+//
+////        /**
+////         * @var Sortie $sortie
+////         */
+//
+//        $queryBuilder = $this->createQueryBuilder('h');
+//        $queryBuilder->setParameter('sortie_id',$sortie->getId());
+//
+//        $queryBuilder->select('COUNT(h)');
+//        $query = $queryBuilder->getQuery();
+//
+//        return $query->getResult();
+//    }
 }

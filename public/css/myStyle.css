@@ -36,6 +36,21 @@ body {
     background-color: #BC956B;
 }
 
+table{
+    border-collapse: collapse;
+}
+
+th, td{
+    border: 1px solid black;
+    padding: 5px;
+    column-span: 1;
+}
+
+tbody{
+    background-color: #656262;
+    text-decoration-color: #030005;
+}
+
 .flex_div{
     display: flex;
     flex-direction: row;
@@ -103,40 +118,40 @@ nav li {
 
 /********************** SORTIE  **************************/
 
-/*h2 {*/
-/*    text-align: center;*/
-/*}*/
+h2 {
+    text-align: center;
+}
 
-/*.sortie-detail {*/
-/*    width: 100%;*/
-/*}*/
+.sortie-detail {
+    width: 100%;
+}
 
-/*.sortie-detail-sortie {*/
-/*    width: 50%;*/
-/*    height: 100%;*/
-/*    float: left;*/
-/*}*/
+.sortie-detail-sortie {
+    width: 50%;
+    height: 100%;
+    float: left;
+}
 
-/*.sortie-detail-ville {*/
-/*    height: 100%;*/
-/*}*/
+.sortie-detail-ville {
+    height: 100%;
+}
 
-/*.sortie-create {*/
-/*    width: 100%;*/
-/*}*/
+.sortie-create {
+    width: 100%;
+}
 
-/*.sortie-create-sortie {*/
-/*    padding-left: 2%;*/
-/*    padding-right: 2%;*/
-/*    width: 50%;*/
-/*    height: 100%;*/
-/*    float: left;*/
-/*}*/
+.sortie-create-sortie {
+    padding-left: 2%;
+    padding-right: 2%;
+    width: 50%;
+    height: 100%;
+    float: left;
+}
 
-/*.sortie-create-ville {*/
-/*    padding-left: 2%;*/
-/*    padding-right: 2%;*/
-/*    width: 50%;*/
-/*    height: 100%;*/
-/*    float: right;*/
-/*}*/
+.sortie-create-ville {
+    padding-left: 2%;
+    padding-right: 2%;
+    width: 50%;
+    height: 100%;
+    float: right;
+}
