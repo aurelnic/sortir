@@ -2,8 +2,12 @@
 
 namespace App\Form;
 
+use App\Entity\Lieu;
 use App\Entity\Participant;
+use App\Entity\Site;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -51,7 +55,6 @@ class ParticipantType extends AbstractType
                     ]),
                 ],
             ])
-            ->add('rattachement')
             ->add('Photo', FileType::class,
                 [
                     'mapped'=>false,
@@ -61,8 +64,19 @@ class ParticipantType extends AbstractType
                             'mimeTypesMessage'=>'Image format not allowed !',
 
                         ])
-                    ]
+                    ],
+                    'required' => false
                 ])
+            ->add('rattachement', EntityType::class, [
+                // looks for choices from this entity
+                'class' => Site::class,
+                // uses the name
+                'choice_label' => 'nomSite',
+
+                // used to render a select box, check boxes or radios
+                // 'multiple' => true,
+                // 'expanded' => true,
+            ])
         ;
     }
 
