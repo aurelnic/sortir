@@ -27,7 +27,6 @@ class SiteController extends AbstractController
         //Recherche de la liste des sites + filtrage si présent
         $filtreForm =$this->createFormBuilder()
             ->add('nom',TextType::class, ['required' => false])
-            ->add('Rechercher', SubmitType::class)
             ->getForm();
         $filtreForm->handleRequest($request);
 
@@ -94,7 +93,7 @@ class SiteController extends AbstractController
     }
 
     /**
-     * @Route("/gestion/villes/edit/{id}", name="gestion_sites_edit")
+     * @Route("/gestion/sites/edit/{id}", name="gestion_sites_edit")
      */
     public function edit($id, EntityManagerInterface $entityManager, SiteRepository $siteRepository, Request $request) :Response
     {

@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="02d10e4c-bacb-4e9d-b3f9-0bac8a8f0350" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/creationProfil.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/detailProfil.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/phpunit.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sortir.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/symfony2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Participant.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Participant.php" afterDir="false" />
+    <list default="true" id="b411f9ee-5e7b-4010-943f-5abb37a80e30" name="Changes" comment="-Inscription / Désister&#10;-Un peu de css ?">
+      <change afterPath="$PROJECT_DIR$/src/Controller/InscriptionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/SiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SiteController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/VilleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/VilleController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/SiteType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/SiteType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/VilleType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/VilleType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/gestion/sites.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/gestion/sites.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/gestion/sites/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/gestion/sites/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/gestion/villes.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/gestion/villes.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/gestion/villes/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/gestion/villes/edit.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,6 +165,9 @@
     </include_path>
   </component>
   <component name="ProjectId" id="202EgxkHzrTBsfh7NmK7rrSXuzQ" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -176,7 +178,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../immo" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="Symfony2.SettingsForm" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -209,5 +211,10 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="-Inscription / Désister&#10;-Un peu de css ?" />
+    <option name="LAST_COMMIT_MESSAGE" value="-Inscription / Désister&#10;-Un peu de css ?" />
   </component>
 </project>

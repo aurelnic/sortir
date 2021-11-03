@@ -1,9 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{%  block title %}
+    {{ parent() }} | Edition Site
+{% endblock %}
+
+{% block body %}
+
 <h2>Editer le site</h2>
 
-<div>
-    {{ form_start(editForm) }}
-    {{ form_row(editForm.nomSite) }}
-    <button id="edit">Modifer</button>
-    {{ form_end(editForm)}}
+{{ form_start(editForm) }}
+{{ form_row(editForm.nomSite) }}
+<button class="button">Modifier</button>
+{{ form_end(editForm)}}
 
-</div>
+{% endblock %}
