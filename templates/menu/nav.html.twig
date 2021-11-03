@@ -4,16 +4,16 @@
         <li><a href="{{ path('gestion_sites') }}" title="Sites">Sites</a></li>
 
         <li><a href="{{ path('main_index', {'_locale': 'fr'}) }}" title="Index">Accueil</a></li>
-        {# {% if app.user %} #}
+        {% if app.user %}
             <li><a href="" title="Profil">Mon profil</a></li>
             <li><a href="" title="Logout">Se déconnecter</a></li>
-        {# {% if is_granted('ROLE_ADMIN') %} #}
+        {% if is_granted('ROLE_ADMIN') %}
 
-        {# {% endif %} #}
-        {#{% else %}  #}
+         {% endif %}
+        {% else %}
             <li><a href="" title="Register">S'inscrire</a></li>
             <li><a href="" title="Login">Se connecter</a></li>
-        {# {% endif %} #}
+         {% endif %}
     </ul>
 </nav>
 

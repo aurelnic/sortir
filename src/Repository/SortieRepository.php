@@ -36,7 +36,7 @@ class SortieRepository extends ServiceEntityRepository
             $queryBuilder->setParameter('site', $sortie->getSite());
         }
 
-        // si recherce par mot
+        //si recherce par mot
         if($sortie->getRecherche()){
             $queryBuilder->andWhere('h.recherche LIKE :recherche');
             $queryBuilder->setParameter('recherche', '%'.$sortie->getRecherche().'%');
@@ -82,8 +82,6 @@ class SortieRepository extends ServiceEntityRepository
         $queryBuilder->select('h');
         $query = $queryBuilder->getQuery();
 
-        return [
-            'sorties' => $query->getResult()
-        ];
+        return $query->getResult();
     }
 }

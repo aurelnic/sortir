@@ -7,48 +7,49 @@
 {% block body %}
     <h2>Filtrer les sorties</h2>
 
-    <div id="container_principal" style="width: 1200px;height:800px; display: flex; flex-direction: column; background-color: #a38b8b; margin: 5px; padding: 5px; border: 2px; border-style: solid">
+    <div id="container_principal">
 
-        <div id="formulaire" style="background-color: #8b8d91; display: flex; flex-direction: row; margin: 5px; padding: 5px; border: 2px; border-style: solid; border-radius: 2px">
-            <div id="formulaire_gauche" style="width: 500px; margin: 5px; padding: 5px; border: 2px">
+        <div id="formulaire">
+            <div id="formulaire_gauche">
                 {{ form_start(form) }}
                 {{ form_row(form.site) }}
                 {{ form_row(form.recherche) }}
                 <div style="display: flex; flex-direction: row; margin: 2px">
                     <p>Entre&nbsp;</p>
                     {{ form_row(form.dateDebut) }}
-                    <br><br>
                     <p>&nbsp;et&nbsp;</p>
                     {{ form_row(form.dateFin) }}
                 </div>
             </div>
 
-            <div id="formulaire_droite" style="width:500px; margin: 5px; padding: 5px; border: 2px">
+            <div id="formulaire_droite">
                 {{ form_row(form.organisateur) }}
                 {{ form_row(form.inscrit) }}
                 {{ form_row(form.pasInscrit) }}
                 {{ form_row(form.sortiesPassees) }}
             </div>
             <div id="formulaire_bouton">
-                <button id="searchButton" style="width: 125px; height:125px">Rechercher</button>
+                <button id="searchButton" style="width: 200px; height:75px; background-color: #B0413E">Rechercher</button>
             </div>
         </div>
 
-        <div id="liste_sorties" style="width: 1200px;height:500px;background-color:#5f74a3; border: 2px; border-style: solid; border-radius: 2px">
-            <table border="2" style=" width: 100%;border: 2px; border-style: solid">
+        <div id="liste_sorties" style="width: 1400px;height:500px;background-color:#7b849a;">
+
+            {#<table border="2" style=" width: 100%;border: 2px; border-style: solid">#}
+            <table border="2">
                 <thead style="display:flex; width: 100%; height: 20px;">
                 <tr>
-                    <th colspan="1">Nom de la sortie</th>
-                    <th colspan="1">Date de la sortie</th>
-                    <th colspan="1">Clôture</th>
-                    <th colspan="1">Inscrits/Places</th>
-                    <th colspan="1">Etat</th>
-                    <th colspan="1">Inscrit</th>
-                    <th colspan="1">Organisateur</th>
-                    <th colspan="1">Actions</th>
+                    <th colspan="2">Nom de la sortie</th>
+                    <th colspan="2">Date de la sortie</th>
+                    <th colspan="2">Clôture de la sortie</th>
+                    <th colspan="2">Inscrits/Places</th>
+                    <th colspan="2">Etat de la sortie</th>
+                    <th colspan="2">Inscrit à la sortie</th>
+                    <th colspan="2">Organisateur de la sortie</th>
+                    <th colspan="2">Actions</th>
                 </tr>
                 </thead>
-                <tbody style="height: 200px; display: inline-block; width: 100%; overflow: auto;">
+                <tbody style="height: 400px; display: flex; width: 100%; text-decoration-color: fuchsia">
                 <tr>
                     {% for sortie in sorties %}
                         <td>{{ sortie.libelle }}</td>
@@ -65,8 +66,7 @@
                 </tbody>
             </table>
         </div>
-        <button id="creerSortie" style="width: 200px; height:75px; margin: 15px; padding: 5px">Créer une sortie</button>
+        <button id="creerSortie" href="{{ path('sortie_create', {'id': 1}) }}" style="background-color: #B0413E; width: 200px; height:75px;">Créer une sortie</button>
     </div>
     {{ form_end(form) }}
 {% endblock %}
-

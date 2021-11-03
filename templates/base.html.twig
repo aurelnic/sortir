@@ -7,7 +7,7 @@
            and uncomment the following Encore helpers to start using Symfony UX #}
         {% block stylesheets %}
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css" integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
-            <link rel="stylesheet" href="{{ asset('css/myCss.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/myStyle.css') }}">
         {% endblock %}
 
 
@@ -15,6 +15,8 @@
     <body>
         <header>
             <div class="div_header">
+                <h1><a href="{{ path('main_index') }}"><img src="{{ asset('img/logo.svg') }}" alt="Accueil | Sortir"></a></h1>
+                <h1>SORTIR.COM</h1><br>
                 {% include 'menu/nav.html.twig' %}
             </div>
         </header>

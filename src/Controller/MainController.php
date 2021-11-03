@@ -27,16 +27,18 @@ class MainController extends AbstractController
             'action' => $this->generateUrl('main_index')
         ]);
         $sortieForm->handleRequest($request);
-        dump($rechercheSortie);
+
         //Evaluation formulaire
         if ($sortieForm->isSubmitted() && $sortieForm->isValid())
         {
             $results = $sortieRepository->trouverSorties($rechercheSortie);
         }
+
         else
         {
             $results = $sortieRepository->findAll();
         }
+        //dd($results);
 
         return $this->render('main/index.html.twig', [
             'controller_name' => 'MainController',
