@@ -1,25 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b411f9ee-5e7b-4010-943f-5abb37a80e30" name="Changes" comment="-Inscription / Désister&#10;-Un peu de css ?">
-      <change afterPath="$PROJECT_DIR$/src/Controller/InscriptionController.php" afterDir="false" />
+    <list default="true" id="00fb9b32-bff8-4532-8172-601f7e18af3c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/sortir.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sortir.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/SiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SiteController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/VilleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/VilleController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/SiteType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/SiteType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/VilleType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/VilleType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/gestion/sites.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/gestion/sites.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/gestion/sites/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/gestion/sites/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/gestion/villes.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/gestion/villes.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/gestion/villes/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/gestion/villes/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/RegistrationFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/RegistrationFormType.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="DONT_SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
+  </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="master" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -162,23 +160,27 @@
       <path value="$PROJECT_DIR$/vendor/psr/log" />
       <path value="$PROJECT_DIR$/vendor/psr/container" />
       <path value="$PROJECT_DIR$/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/vendor/zurb/foundation" />
     </include_path>
   </component>
   <component name="ProjectId" id="202EgxkHzrTBsfh7NmK7rrSXuzQ" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="false" />
     <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../immo" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -189,12 +191,19 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="02d10e4c-bacb-4e9d-b3f9-0bac8a8f0350" name="Changes" comment="" />
+      <changelist id="00fb9b32-bff8-4532-8172-601f7e18af3c" name="Changes" comment="" />
       <created>1635234396943</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1635234396943</updated>
       <workItem from="1635234398705" duration="10400000" />
+      <workItem from="1635927732596" duration="9945000" />
+      <workItem from="1635942922539" duration="8820000" />
+      <workItem from="1636015791435" duration="639000" />
+      <workItem from="1636016464770" duration="16000" />
+      <workItem from="1636016552014" duration="3617000" />
+      <workItem from="1636021086172" duration="720000" />
+      <workItem from="1636021880914" duration="444000" />
     </task>
     <servers />
   </component>
@@ -214,7 +223,8 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="-Inscription / Désister&#10;-Un peu de css ?" />
-    <option name="LAST_COMMIT_MESSAGE" value="-Inscription / Désister&#10;-Un peu de css ?" />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <option name="SHOW_UNVERSIONED_FILES_WHILE_COMMIT" value="false" />
+    <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
 </project>
