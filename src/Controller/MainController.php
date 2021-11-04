@@ -10,8 +10,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 
-
-
 class MainController extends AbstractController
 {
     /**
@@ -33,7 +31,6 @@ class MainController extends AbstractController
         {
             $results = $sortieRepository->trouverSorties($rechercheSortie);
         }
-
         else
         {
             $results = $sortieRepository->findAll();
@@ -46,4 +43,12 @@ class MainController extends AbstractController
             'form' => $sortieForm->createView()
         ]);
     }
+
+//    /**
+//     * @Route("/api/get-users", name="app_get_users")
+//     */
+//    public function getUsers(): Response
+//    {
+//        return $this->json('{"prenom":"adel"}');
+//    }
 }

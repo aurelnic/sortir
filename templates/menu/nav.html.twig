@@ -6,13 +6,13 @@
         <li><a href="{{ path('main_index', {'_locale': 'fr'}) }}" title="Index">Accueil</a></li>
         {% if app.user %}
             <li><a href="" title="Profil">Mon profil</a></li>
-            <li><a href="" title="Logout">Se déconnecter</a></li>
+            <li><a href="{{ path('app_logout') }}" title="Se déconnecter">Se déconnecter</a></li>
         {% if is_granted('ROLE_ADMIN') %}
 
          {% endif %}
         {% else %}
-            <li><a href="" title="Register">S'inscrire</a></li>
-            <li><a href="" title="Login">Se connecter</a></li>
+            <li><a href="{{ path('app_creation_profil') }}" title="S'inscrire">S'inscrire</a></li>
+            <li><a href="{{ path('app_login') }}" title="Se connecter">Se connecter</a></li>
          {% endif %}
     </ul>
 </nav>
