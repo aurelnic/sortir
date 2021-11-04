@@ -25,14 +25,9 @@ class Sortie
     private $libelle;
 
     /**
-     * @ORM\Column(type="date")
-     */
-    private $dateSortie;
-
-    /**
      * @ORM\Column(type="datetime")
      */
-    private $heure;
+    private $dateSortie;
 
     /**
      * @ORM\Column(type="integer")
@@ -117,18 +112,6 @@ class Sortie
     public function setDateSortie(\DateTimeInterface $dateSortie): self
     {
         $this->dateSortie = $dateSortie;
-
-        return $this;
-    }
-
-    public function getHeure(): ?\DateTimeInterface
-    {
-        return $this->heure;
-    }
-
-    public function setHeure(\DateTimeInterface $heure): self
-    {
-        $this->heure = $heure;
 
         return $this;
     }

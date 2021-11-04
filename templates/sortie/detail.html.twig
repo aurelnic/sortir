@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Detail d'une sortie
+{% endblock %}
+
+{% block body %}
+    <h2> Afficher une sortie</h2>
+    <div class="sortie-detail">
+        <div class="sortie-detail-sortie">
+            <div>Nom de la sortie : {{ sortie.libelle }}</div>
+            <div>Date sortie : {{ sortie.dateSortie|date }}</div>
+            <div>Date limite : {{ sortie.dateCloture |date}}</div>
+            <div>Nombre de place : {{ sortie.nbreParticipants }}</div>
+            <div>Durée : {{ sortie.duree }} minutes</div>
+            <div>Durée : {{ sortie.description }}</div>
+        </div>
+        <div class="sortie-detail-ville">
+            <div>Ville organisatrice : {{ sortie.site.nomSite }}</div>
+            <div>Lieu : {{ sortie.lieu.nomLieu }}</div>
+            <div>Adresse : {{ sortie.lieu.adresse }}</div>
+            <div>Code postal : {{ sortie.lieu.ville.codePostal }}</div>
+            <div>Longitude : {{ sortie.lieu.longitudeGPS }}</div>
+            <div>Latitude : {{ sortie.lieu.latitudeGPS }}</div>
+        </div>
+    </div>
+{% endblock %}
+
+
+
