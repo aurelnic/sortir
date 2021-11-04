@@ -21,7 +21,6 @@
                     {{ form_row(form.dateFin) }}
                 </div>
             </div>
-
             <div id="formulaire_droite" style="width: 500px">
                 {{ form_row(form.organisateur) }}
                 {{ form_row(form.inscrit) }}
@@ -35,10 +34,9 @@
 
         <div id="liste_sorties" style="width: 1500px;height:500px;">
 
-            {#<table border="2" style=" width: 100%;border: 2px; border-style: solid">#}
             <table>
                 <thead>
-                    <tr >
+                    <tr>
                         <th>Nom de la sortie</th>
                         <th>Date de la sortie</th>
                         <th>Clôture de la sortie</th>
@@ -55,8 +53,9 @@
                             <td>{{ sortie.libelle }}</td>
                             <td>{{ sortie.dateSortie|date('y/m/d h:i') }}</td>
                             <td>{{ sortie.dateCloture|date('y-m-d') }}</td>
-{#                            <td>Id sortie pour test: {{ sortie.id }} / {{ sortie.listeParticipants.count }} / {{ sortie.nbreParticipants }} </td>#}
                             <td>{{ sortie.listeParticipants.count }} / {{ sortie.nbreParticipants }} </td>
+
+                            {# Pour affichage de l'état de la sortie #}
                             {% if sortie.etat == '1' %}
                                 <td>En cours</td>
                             {% elseif  sortie.etat == '2'%}
@@ -66,11 +65,16 @@
                             {% else %}
                                 <td>En création</td>
                             {% endif %}
-                            <td>Inscrit A FAIRE </td>
-{#                            <td>{{ sortie.organisateur.pseudo }}</td>#}
 
-                            <td><li><a href="{{ path('sortie_create', {'id': 1}) }}" title="Vers profil organisateur">{{ sortie.organisateur.pseudo }}</a></li></td>
+                            <td>A faire</td>
+                            {# Pour indiquer si la personne connectée est inscrite à la sortie #}
+{#                            {% if sortie.listeParticipants.contains() %}#}
+{#                                <td>Oui</td>#}
+{#                            {% else %}#}
+{#                                <td>Non</td>#}
+{#                            {% endif %}#}
 
+                            <td><a href="{{ path('app_detail_profil', {'id': sortie.organisateur.id}) }}" title="Vers profil organisateur"><u>{{ sortie.organisateur.pseudo }}</u></a></td>
                             <td>Actions A FAIRE</td>
                         </tr>
 
