@@ -75,7 +75,13 @@
 {#                            {% endif %}#}
 
                             <td><a href="{{ path('app_detail_profil', {'id': sortie.organisateur.id}) }}" title="Vers profil organisateur"><u>{{ sortie.organisateur.pseudo }}</u></a></td>
-                            <td>Actions A FAIRE</td>
+
+                            {% if app.user %}
+                                <td>Actions A FAIRE si connecté</td>
+                            {% else%}
+                                <td>Actions A FAIRE si pas connecté</td>
+                            {% endif %}
+
                         </tr>
 
                         <br>
