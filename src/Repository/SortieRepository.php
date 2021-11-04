@@ -36,7 +36,7 @@ class SortieRepository extends ServiceEntityRepository
             $queryBuilder->setParameter('site', $sortie->getSite());
         }
 
-        // si recherce par mot
+        //si recherce par mot
         if($sortie->getRecherche()){
             $queryBuilder->andWhere('h.recherche LIKE :recherche');
             $queryBuilder->setParameter('recherche', '%'.$sortie->getRecherche().'%');
@@ -64,14 +64,12 @@ class SortieRepository extends ServiceEntityRepository
         if($sortie->getInscrit()){
             $queryBuilder->andWhere('h.inscrit = :inscrit');
             $queryBuilder->setParameter('inscrit', $sortie->getInscrit());
-
         }
 
         //si pas inscrit
         if($sortie->getPasInscrit()){
             $queryBuilder->andWhere('h.pasInscrit = :pasInscrit');
             $queryBuilder->setParameter('pasInscrit', $sortie->getPasInscrit());
-
         }
 
         //si sorties passees
@@ -80,17 +78,27 @@ class SortieRepository extends ServiceEntityRepository
             $queryBuilder->setParameter('sortiesPassees', $sortie->getSortiesPassees());
         }
 
-        //permet de récupérer le nombre de résultat avec les critères de recherhce
-        $queryBuilder->select('COUNT(h)');
-        $countQuery = $queryBuilder->getQuery();
-        $maxHouses = $countQuery->getSingleScalarResult();
-
         //doit refaire le select pour bien récupérer les résultats
         $queryBuilder->select('h');
         $query = $queryBuilder->getQuery();
 
-        return [
-            'sorties' => $query->getResult()
-        ];
+        return $query->getResult();
     }
+
+
+//    public function nbreInscritsSortie($sortie){
+//        //SELECT COUNT (participant_id) FROM sortie_participant WHERE $sortie_id = $sortie.id
+//
+////        /**
+////         * @var Sortie $sortie
+////         */
+//
+//        $queryBuilder = $this->createQueryBuilder('h');
+//        $queryBuilder->setParameter('sortie_id',$sortie->getId());
+//
+//        $queryBuilder->select('COUNT(h)');
+//        $query = $queryBuilder->getQuery();
+//
+//        return $query->getResult();
+//    }
 }

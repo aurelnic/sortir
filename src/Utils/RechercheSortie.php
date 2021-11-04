@@ -6,10 +6,6 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 class RechercheSortie
 {
-    /**
-     * @Assert\Type("string")
-     * @Assert\Choice(choices={""})
-     */
     private $site;
 
     /**
@@ -17,14 +13,8 @@ class RechercheSortie
      */
     private $recherche;
 
-    /**
-     * @Assert\Type("date")
-     */
     private $dateDebut;
 
-    /**
-     * @Assert\Type("date")
-     */
     private $dateFin;
 
     /**

@@ -28,15 +28,21 @@ class MainController extends AbstractController
         ]);
         $sortieForm->handleRequest($request);
 
-        //on passe à la méthde findHouses de notre repository l'objet $searchHouse, et la page
-        //$results = $houseRepository->findHouses($searchHouse, $page);
+        //Evaluation formulaire
+        if ($sortieForm->isSubmitted() && $sortieForm->isValid())
+        {
+            $results = $sortieRepository->trouverSorties($rechercheSortie);
+        }
 
-        //on passe à la méthode trouverSorties de notre SortieRepository l'objet $rechercheSortie
-        $results = $sortieRepository->trouverSorties($rechercheSortie);
+        else
+        {
+            $results = $sortieRepository->findAll();
+        }
+        //dd($results);
 
         return $this->render('main/index.html.twig', [
             'controller_name' => 'MainController',
-            'sorties' => $results['sorties'],
+            'sorties' => $results,
             'form' => $sortieForm->createView()
         ]);
     }

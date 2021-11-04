@@ -5,67 +5,83 @@
 {% endblock %}
 
 {% block body %}
-    <h2>Filtrer les sorties</h2>
+    <h3>Filtrer les sorties</h3>
 
-    <div id="container_principal" style="width: 1200px;height:800px; display: flex; flex-direction: column; background-color: #a38b8b; margin: 5px; padding: 5px; border: 2px; border-style: solid">
+    <div id="container_principal">
 
-        <div id="formulaire" style="background-color: #8b8d91; display: flex; flex-direction: row; margin: 5px; padding: 5px; border: 2px; border-style: solid; border-radius: 2px">
-            <div id="formulaire_gauche" style="width: 500px; margin: 5px; padding: 5px; border: 2px">
+        <div id="formulaire" style="display: flex; flex-direction: row;">
+            <div id="formulaire_gauche" style="width: 500px">
                 {{ form_start(form) }}
                 {{ form_row(form.site) }}
                 {{ form_row(form.recherche) }}
                 <div style="display: flex; flex-direction: row; margin: 2px">
                     <p>Entre&nbsp;</p>
                     {{ form_row(form.dateDebut) }}
-                    <br><br>
                     <p>&nbsp;et&nbsp;</p>
                     {{ form_row(form.dateFin) }}
                 </div>
             </div>
 
-            <div id="formulaire_droite" style="width:500px; margin: 5px; padding: 5px; border: 2px">
+            <div id="formulaire_droite" style="width: 500px">
                 {{ form_row(form.organisateur) }}
                 {{ form_row(form.inscrit) }}
                 {{ form_row(form.pasInscrit) }}
                 {{ form_row(form.sortiesPassees) }}
             </div>
-            <div id="formulaire_bouton">
-                <button id="searchButton" style="width: 125px; height:125px">Rechercher</button>
+            <div id="formulaire_bouton" style="width: 200px">
+                <button id="searchButton" style="width: 200px; height:75px; background-color: #B0413E">Rechercher</button>
             </div>
         </div>
 
-        <div id="liste_sorties" style="width: 1200px;height:500px;background-color:#5f74a3; border: 2px; border-style: solid; border-radius: 2px">
-            <table style="width: 100%; display:block;">
-                <thead style="display: inline-block; width: 100%; height: 20px;">
-                <tr>
-                    <th>Nom de la sortie</th>
-                    <th>Date de la sortie</th>
-                    <th>Clôture</th>
-                    <th>Inscrits/Places</th>
-                    <th>Etat</th>
-                    <th>Inscrit</th>
-                    <th>Organisateur</th>
-                    <th>Actions</th>
-                </tr>
+        <div id="liste_sorties" style="width: 1500px;height:500px;">
+
+            {#<table border="2" style=" width: 100%;border: 2px; border-style: solid">#}
+            <table>
+                <thead>
+                    <tr >
+                        <th>Nom de la sortie</th>
+                        <th>Date de la sortie</th>
+                        <th>Clôture de la sortie</th>
+                        <th>Inscrits/Places</th>
+                        <th>Etat de la sortie</th>
+                        <th>Inscrit à la sortie</th>
+                        <th>Organisateur de la sortie</th>
+                        <th>Actions à réaliser</th>
+                    </tr>
                 </thead>
-                <tbody style="height: 200px; display: inline-block; width: 100%; overflow: auto;">
-                <tr>
-                    {% for sortie in sorties %}
-                        <td>{{ sortie.libelle }}</td>
-                        <td>{{ sortie.dateSortie }}</td>
-                        <td>{{ sortie.dateCloture }}</td>
-                        <td>{{ sortie.nbreParticipants }}</td>
-                        <td>{{ sortie.etat }}</td>
-                        <td>Inscrit A FAIRE </td>
-                        <td>{{ sortie.organisateur }}</td>
-                        <td>Actions A FAIRE</td>
-                    {% endfor %}
-                </tr>
+                <tbody>
+                        {% for sortie in sorties %}
+                        <tr>
+                            <td>{{ sortie.libelle }}</td>
+                            <td>{{ sortie.dateSortie|date('y/m/d h:i') }}</td>
+                            <td>{{ sortie.dateCloture|date('y-m-d') }}</td>
+{#                            <td>Id sortie pour test: {{ sortie.id }} / {{ sortie.listeParticipants.count }} / {{ sortie.nbreParticipants }} </td>#}
+                            <td>{{ sortie.listeParticipants.count }} / {{ sortie.nbreParticipants }} </td>
+                            {% if sortie.etat == '1' %}
+                                <td>En cours</td>
+                            {% elseif  sortie.etat == '2'%}
+                                <td>Fermé</td>
+                            {% elseif  sortie.etat == '3'%}
+                                <td>Ouvert</td>
+                            {% else %}
+                                <td>En création</td>
+                            {% endif %}
+                            <td>Inscrit A FAIRE </td>
+{#                            <td>{{ sortie.organisateur.pseudo }}</td>#}
+
+                            <td><li><a href="{{ path('sortie_create', {'id': 1}) }}" title="Vers profil organisateur">{{ sortie.organisateur.pseudo }}</a></li></td>
+
+                            <td>Actions A FAIRE</td>
+                        </tr>
+
+                        <br>
+                        {% endfor %}
                 </tbody>
             </table>
         </div>
-        <button id="creerSortie" style="width: 200px; height:75px; margin: 15px; padding: 5px">Créer une sortie</button>
+
     </div>
     {{ form_end(form) }}
+    <li><a href="{{ path('sortie_create', {'id': 1}) }}" title="Créer sortie">Créer une sortie</a></li>
+{#    <button id="creerSortie" onclick="window.location.href ={{ path('sortie_create', {'id': 1}) }}" style="background-color: #B0413E; width: 200px; height:75px;">Créer une sortie</button>#}
 {% endblock %}
-

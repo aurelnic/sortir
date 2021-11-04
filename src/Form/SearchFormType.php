@@ -30,11 +30,15 @@ class SearchFormType extends AbstractType
             ])
 
             ->add('dateDebut', DateType::class, [
-                'required' => true
+                'html5' => true,
+                'widget' => 'single_text',
+                'required' => false
             ])
 
             ->add('dateFin', DateType::class, [
-                'required' => true
+                'html5' => true,
+                'widget' => 'single_text',
+                'required' => false
             ])
 
             ->add('organisateur', CheckboxType::class, [
