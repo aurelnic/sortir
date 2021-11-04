@@ -38,6 +38,7 @@ class SortieType extends AbstractType
             ->add('description', TextareaType::class, [
                 'label' =>"Description de la sortie"
             ])
+
             ->add('lieu',EntityType::class,[
                 'class'=>Lieu::class,
                 'choice_label'=>function($lieu){

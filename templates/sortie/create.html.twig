@@ -36,9 +36,9 @@
             </div>
         </div>
     </div>
-    <button>Enregistrer la sortie</button>
+    <button class="button">Enregistrer la sortie</button>
     {{ form_end(sortieForm) }}
-    <button>Annuler</button>
+    <a href="{{ path('main_index') }}" class="button">Annuler</a>
 {% endblock %}
 
 {% block javascripts %}

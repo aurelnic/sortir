@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Modification sortie
+{% endblock %}
+
+{% block body %}
+    <h2> Créer une sortie</h2>
+    <div class="sortie-create">
+        <div class="sortie-create-sortie">
+            {{ form_start(sortieForm) }}
+            {{ form_row(sortieForm.libelle) }}
+            {{ form_row(sortieForm.dateSortie) }}
+            {{ form_row(sortieForm.dateCloture) }}
+            {{ form_row(sortieForm.nbreParticipants) }}
+            {{ form_row(sortieForm.duree) }}
+            {{ form_row(sortieForm.description) }}
+            <p>Ville organisatrice : {{ sortie.site.nomSite }}</p>
+        </div>
+        <div class="sortie-create-ville">
+            <label for='villes'>Villes</label>
+            <select id="villes" required>
+                <option value="" style="color: red" selected>{{ sortie.lieu.ville.nomVille }}</option>
+                {% for ville in villes %}
+                    <option value='{{ ville.id }}'>{{ ville.nomVille }}</option>
+                {% endfor %}
+            </select>
+            <div id="lieu">
+                {{ form_row(sortieForm.lieu) }}
+                <label for="adresse">Adresse</label>
+                <input type="text" id="adresse" value="{{ sortie.lieu.adresse }}" disabled/>
+                <label for="latitude">Latitude</label>
+                <input type="text" id="latitude" disabled value="{{ sortie.lieu.latitudeGPS }}"/>
+                <label for="longitude">Longitude</label>
+                <input type="text" id="longitude" disabled value="{{ sortie.lieu.longitudeGPS }}"/>
+            </div>
+        </div>
+    </div>
+    <button class="button">Modification de la sortie</button>
+    {{ form_end(sortieForm) }}
+    <a href="{{ path('main_index') }}" class="button">Annuler</a>
+{% endblock %}
+
+{% block javascripts %}
+<script>
+    $(document).ready(function (){
+        // page loaded
+        $("#villes").change(function(){
+            var id = $(this).val();
+            // ajax
+            $.get("/get-lieux/"+id, function(data, status){
+                var json = JSON.parse(data);
+                var html = "";
+                html += '<option>Choisissez un lieu :</option>';
+                for(lieu of json){
+                    html += '<option value="'+lieu.id+'" >'+lieu.nomLieu+'</option>';
+                }
+                $("#sortie_lieu").html(html);
+            });
+        });
+        $("#sortie_lieu").change(function(){
+            var id = $(this).val();
+            console.log($(this).val());
+            // ajax
+            $.get("/get-info-lieux/"+id, function(data, status){
+                var json = JSON.parse(data);
+                document.getElementById('adresse').value = json.adresse;
+                document.getElementById('latitude').value = json.latitude;
+                document.getElementById('longitude').value = json.longitude;
+            });
+        });
+    });
+</script>
+{% endblock %}
+
+

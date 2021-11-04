@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Lieu;
 use App\Entity\Sortie;
 use App\Form\LieuType;
+use App\Form\SortieAnnulType;
 use App\Form\SortieType;
 use App\Repository\LieuRepository;
 use App\Repository\ParticipantRepository;
@@ -62,8 +63,7 @@ class SortieController extends AbstractController
             $entityManager->persist($sortie);
             $entityManager->flush();
             // Ajouter message de validation
-            // Ajouter la redirection
-            // return $this->redirectToRoute();
+            return $this->redirectToRoute('main_index');
         }
         return $this->render('sortie/create.html.twig', [
             'site' => $site,
@@ -74,9 +74,57 @@ class SortieController extends AbstractController
     }
 
     /**
+     * @Route("/sortie/modif/{id}", name="sortie_modif")
+     */
+    public function modif(EntityManagerInterface $entityManager, SortieRepository $sortieRepository, VilleRepository $villeRepository, LieuRepository $lieuRepository, Request $request, int $id): Response {
+        $sortie = $sortieRepository->find($id);
+        $villes = $villeRepository->findAll();
+        $lieux = $lieuRepository->findAll();
+        if(!$sortie) {
+            throw $this->createNotFoundException("Sortie inconnue!");
+        }
+
+        $form = $this->createForm(SortieType::class, $sortie);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()) {
+
+            $entityManager->persist($sortie);
+            $entityManager->flush();
+            // Ajouter message de validation
+            return $this->redirectToRoute('main_index');
+        }
+        return $this->render('sortie/modif.html.twig', [
+            'sortieForm' => $form->createView(),
+            'lieux' => $lieux,
+            'villes' => $villes,
+            'sortie' => $sortie
+        ]);
+    }
+    /**
+     * @Route("/sortie/annuler/{id}", name="sortie_annuler")
+     */
+    public function annuler(int $id, SortieRepository $sortieRepository, Request $request, EntityManagerInterface $entityManager): Response{
+        $sortie = $sortieRepository->find($id);
+        $form = $this->createForm(SortieAnnulType::class, $sortie);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()) {
+            $sortie->setEtat(0);
+            $entityManager->persist($sortie);
+            $entityManager->flush();
+            // Ajouter message de validation
+            return $this->redirectToRoute('main_index');
+        }
+        return $this->render('sortie/annuler.html.twig', [
+            'sortieForm' => $form->createView(),
+            'sortie' => $sortie
+        ]);
+    }
+    /**
      * @Route("/get-lieux/{ville_id}", name="app_get_lieux")
      */
-    public function getLieux(LieuRepository $lieuRepository,$ville_id): Response
+    public function getLieux(LieuRepository $lieuRepository, $ville_id): Response
     {
         $lieux=$lieuRepository->findBy(["ville"=>$ville_id]);
 

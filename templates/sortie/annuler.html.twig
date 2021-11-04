@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Annuler une sortie
+{% endblock %}
+
+{% block body %}
+    <h2> Annuler une sortie</h2>
+    <div class="sortie-create">
+        <div class="sortie-create-sortie">
+            <p>Nom de la sortie : {{ sortie.libelle }}</p>
+            <p>Date de la sortie : {{ sortie.dateSortie|date }}</p>
+            <p>Villeorganisatrice : {{ sortie.organisateur.rattachement.nomSite }}</p>
+            <p>Lieu de la sortie : {{ sortie.lieu.adresse }}</p>
+            {{ form_start(sortieForm) }}
+            {{ form_row(sortieForm.motifAnnulation) }}
+        </div>
+    </div>
+    <button class="button">Enregistrer</button>
+    {{ form_end(sortieForm) }}
+    <a href="{{ path('main_index') }}" class="button">Annuler</a>
+{% endblock %}
+
