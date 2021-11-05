@@ -18,7 +18,7 @@ use Symfony\Component\Security\Core\Security;
 class ProfilController extends AbstractController
 {
     /**
-     * @Route("/profil", name="app_creation_profil")
+     * @Route("/creationProfil", name="app_creation_profil")
      */
     public function creationProfil(Request $request, UserPasswordHasherInterface $userPasswordHasherInterface, SiteRepository $SiteRepository): Response
     {
@@ -35,15 +35,13 @@ class ProfilController extends AbstractController
                     $form->get('password')->getData()
                 )
             );
-            //Le compte est activé à l'inscription
-            $user->setEstActif(1);
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
             // do anything else you need here, like send an email
 
-            return $this->redirectToRoute('main_index');
+            return $this->redirectToRoute('main');
         }
 
         return $this->render('profil/creationProfil.html.twig', [
@@ -64,7 +62,7 @@ class ProfilController extends AbstractController
         }
         if ($user != $this->getUser()) {
             $this->addFlash('error', 'Vous ne pouvez pas modifier ce profil');
-            return $this->redirectToRoute('main_index');
+            return $this->redirectToRoute('main');
         }
 
         $form = $this->createForm(ParticipantType::class, $user);
