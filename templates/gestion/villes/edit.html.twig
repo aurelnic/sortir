@@ -1,10 +1,16 @@
-<h2>Editer la ville</h2>
+{% extends 'base.html.twig' %}
 
-<div>
+{%  block title %}
+    {{ parent() }} | Edition Ville
+{% endblock %}
+
+{% block body %}
+
+<h2>Editer la ville</h2>
     {{ form_start(editForm) }}
     {{ form_row(editForm.nomVille) }}
     {{ form_row(editForm.codePostal) }}
     <button id="edit">Modifer</button>
     {{ form_end(editForm)}}
 
-</div>
+{% endblock %}

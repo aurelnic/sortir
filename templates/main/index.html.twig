@@ -66,21 +66,33 @@
                                 <td>En création</td>
                             {% endif %}
 
-                            <td>A faire</td>
-                            {# Pour indiquer si la personne connectée est inscrite à la sortie #}
-{#                            {% if sortie.listeParticipants.contains() %}#}
-{#                                <td>Oui</td>#}
-{#                            {% else %}#}
-{#                                <td>Non</td>#}
-{#                            {% endif %}#}
-
-                            <td><a href="{{ path('app_detail_profil', {'id': sortie.organisateur.id}) }}" title="Vers profil organisateur"><u>{{ sortie.organisateur.pseudo }}</u></a></td>
-
-                            {% if app.user %}
-                                <td>Actions A FAIRE si connecté</td>
-                            {% else%}
-                                <td>Actions A FAIRE si pas connecté</td>
+                            {# Pour afficher si la personne connectée est inscrite ou pas #}
+                            {% if app.user in sortie.listeParticipants %}
+                                <td>Est inscrit</td>
+                            {% else %}
+                                <td>N'est pas inscrit</td>
                             {% endif %}
+
+                            {# Pour afficher l'organisateur de la sortie #}
+                             <td><a href="{{ path('app_detail_profil', {'id': sortie.organisateur.id}) }}" title="Vers profil organisateur"><u>{{ sortie.organisateur.pseudo }}</u></a></td>
+
+                            {# Pour affichage en fonction inscription personne connectée #}
+                            <td>
+                            {% if app.user == sortie.organisateur%}
+                                <a href="{{ path('sortie_create', {'id': sortie.id}) }}"><u>Modifier</u></a> -
+                            {% else %}
+                                <a href="{{ path('sortie_detail', {'id': sortie.id}) }}"><u>Afficher</u></a> -
+                            {% endif %}
+                            {% if app.user in sortie.listeParticipants %}
+                                <a href="{{ path('inscription_desister', {'id_sortie': sortie.id}) }}"><u>Se désister</u></a>
+                            {% else %}
+                                <a href="{{ path('inscription_inscription', {'id_sortie': sortie.id}) }}"><u>S'inscrire</u></a>
+                            {% endif %}
+                            </td>
+{#                            {% if app.user %}#}
+{#                                <td><a href="{{ path('inscription_inscription', {'id_sortie': sortie.id}) }}"><u>S'inscrire</u></a> - <a href="{{ path('inscription_desister', {'id_sortie': sortie.id}) }}"><u>Se désister</u></a></td>#}
+
+{#                            {% endif %}#}
 
                         </tr>
 
@@ -92,6 +104,8 @@
 
     </div>
     {{ form_end(form) }}
-    <li><a href="{{ path('sortie_create', {'id': 1}) }}" title="Créer sortie">Créer une sortie</a></li>
+    {% if app.user%}
+        <a href="{{ path('sortie_create', {'id': app.user.id}) }}" title="Créer sortie">Créer une sortie</a>
+    {% endif %}
 {#    <button id="creerSortie" onclick="window.location.href ={{ path('sortie_create', {'id': 1}) }}" style="background-color: #B0413E; width: 200px; height:75px;">Créer une sortie</button>#}
 {% endblock %}

@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use Doctrine\ORM\Query\ResultSetMapping;
 use App\Entity\Sortie;
 use App\Utils\RechercheSortie;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
@@ -22,6 +23,16 @@ class SortieRepository extends ServiceEntityRepository
     }
 
     public function trouverSorties($sortie){
+
+//        SELECT * FROM sortie WHERE 1=1
+//        AND sortie.date_sortie > NOW()
+//        AND sortie.duree > 100
+//        AND sortie.id IN
+//        (SELECT DISTINCT sortie_id FROM sortie
+//        INNER JOIN sortie_participant ON sortie.id = sortie_participant.sortie_id
+//        WHERE
+//        sortie_participant.participant_id = 1
+//    )
 
         $queryBuilder = $this->createQueryBuilder('h');
         $queryBuilder->addOrderBy('h.dateSortie', 'ASC');
@@ -63,7 +74,7 @@ class SortieRepository extends ServiceEntityRepository
         //si inscrit
         if($sortie->getInscrit()){
             $queryBuilder->andWhere('h.inscrit = :inscrit');
-            $queryBuilder->setParameter('inscrit', $sortie->getInscrit());
+            $queryBuilder->setParameter('Inscrit', $sortie->getInscrit());
         }
 
         //si pas inscrit
@@ -84,21 +95,4 @@ class SortieRepository extends ServiceEntityRepository
 
         return $query->getResult();
     }
-
-
-//    public function nbreInscritsSortie($sortie){
-//        //SELECT COUNT (participant_id) FROM sortie_participant WHERE $sortie_id = $sortie.id
-//
-////        /**
-////         * @var Sortie $sortie
-////         */
-//
-//        $queryBuilder = $this->createQueryBuilder('h');
-//        $queryBuilder->setParameter('sortie_id',$sortie->getId());
-//
-//        $queryBuilder->select('COUNT(h)');
-//        $query = $queryBuilder->getQuery();
-//
-//        return $query->getResult();
-//    }
 }

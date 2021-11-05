@@ -3,14 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Site;
-use App\Entity\Ville;
 use App\Form\SiteType;
-use App\Form\VilleType;
 use App\Repository\SiteRepository;
-use App\Repository\VilleRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -27,7 +23,6 @@ class SiteController extends AbstractController
         //Recherche de la liste des sites + filtrage si présent
         $filtreForm =$this->createFormBuilder()
             ->add('nom',TextType::class, ['required' => false])
-            ->add('Rechercher', SubmitType::class)
             ->getForm();
         $filtreForm->handleRequest($request);
 
@@ -94,7 +89,7 @@ class SiteController extends AbstractController
     }
 
     /**
-     * @Route("/gestion/villes/edit/{id}", name="gestion_sites_edit")
+     * @Route("/gestion/sites/edit/{id}", name="gestion_sites_edit")
      */
     public function edit($id, EntityManagerInterface $entityManager, SiteRepository $siteRepository, Request $request) :Response
     {

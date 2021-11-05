@@ -26,7 +26,6 @@ class VilleController extends AbstractController
         //Recherche de la liste des villes + filtrage si présent
         $villeForm =$this->createFormBuilder()
             ->add('nom',TextType::class, ['required' => false])
-            ->add('Rechercher', SubmitType::class)
             ->getForm();
         $villeForm->handleRequest($request);
 
@@ -54,7 +53,7 @@ class VilleController extends AbstractController
 
         return $this->render('gestion/villes.html.twig', [
             'villes' => $villes,
-            'villeform' => $villeForm->createView(),
+            'filtreForm' => $villeForm->createView(),
             'villeajoutform' => $villeAjoutForm->createView()
 
         ]);

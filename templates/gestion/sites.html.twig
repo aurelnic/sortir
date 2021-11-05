@@ -1,20 +1,39 @@
-<h2>Gérer les sites</h2>
+{% extends 'base.html.twig' %}
+
+{%  block title %}
+    {{ parent() }} | Gestion Sites
+{% endblock %}
+
+{% block body %}
+    <h2>Gérer les sites</h2>
 
 <div id="filtrage">
     <h3>Filtrer les sites</h3>
+    {{ form_start(filtreForm)}}
+    Le nom contient : {{ form_widget(filtreForm.nom)}} <button class="button">Rechercher</button>
+    {{ form_end(filtreForm) }}
 
-    {{ form(filtreForm) }}
 </div>
 
-<div>
+    <table class="hover">
+        <tbody>
+        <tr>
+            <td>Nom du Site</td>
+            <td>Actions</td>
+        </tr>
     {% for site in sites %}
-        <div>{{ site.id}} {{ site.nomSite}}  <a href="{{ path('gestion_sites_edit', {'id': site.id}) }}">Modifier</a>   <a href="{{ path('gestion_sites_delete', {'id': site.id}) }}">Supprimer</a></div>
+        <tr>
+            <td>{{ site.id}} {{ site.nomSite}}</td>
+            <td><a href="{{ path('gestion_sites_edit', {'id': site.id}) }}" class="button">Modifier</a>   <a class="button" href="{{ path('gestion_sites_delete', {'id': site.id}) }}">Supprimer</a></td>
+        </tr>
+
     {% endfor %}
-
-    {{ form_start(ajoutForm) }}
-    {{ form_widget(ajoutForm.nomSite) }}
-    <button id="rajout">Ajouter</button>
-
-    {{ form_end(ajoutForm)}}
-
-</div>
+        {{ form_start(ajoutForm) }}
+        <tr>
+            <td>{{ form_widget(ajoutForm.nomSite) }}</td>
+            <td> <button class="button">Ajouter</button></td>
+        </tr>
+        {{ form_end(ajoutForm)}}
+        </tbody>
+    </table>
+{% endblock %}
