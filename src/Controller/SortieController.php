@@ -17,6 +17,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Validator\Constraints\Date;
 
 class SortieController extends AbstractController
 {
@@ -106,10 +107,13 @@ class SortieController extends AbstractController
      */
     public function annuler(int $id, SortieRepository $sortieRepository, Request $request, EntityManagerInterface $entityManager): Response{
         $sortie = $sortieRepository->find($id);
+        $date = new simpleDate();
         $form = $this->createForm(SortieAnnulType::class, $sortie);
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()) {
+            // Vérifier que la date de sortie est inférieur à la date d'aujourd'hui
+            // if ($sortie->getDateSortie() < $date->Now()) {
             $sortie->setEtat(0);
             $entityManager->persist($sortie);
             $entityManager->flush();

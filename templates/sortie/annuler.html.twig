@@ -10,7 +10,7 @@
         <div class="sortie-create-sortie">
             <p>Nom de la sortie : {{ sortie.libelle }}</p>
             <p>Date de la sortie : {{ sortie.dateSortie|date }}</p>
-            <p>Villeorganisatrice : {{ sortie.organisateur.rattachement.nomSite }}</p>
+            <p>Ville organisatrice : {{ sortie.organisateur.rattachement.nomSite }}</p>
             <p>Lieu de la sortie : {{ sortie.lieu.adresse }}</p>
             {{ form_start(sortieForm) }}
             {{ form_row(sortieForm.motifAnnulation) }}
